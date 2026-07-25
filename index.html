@@ -46,18 +46,32 @@
             margin-top: 4px;
         }
 
+        /* Campus Image */
+        .campus-img-container {
+            text-align: center;
+            padding: 15px;
+            background: white;
+        }
+
+        .campus-img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1000');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
         .hero h2 {
-            font-size: 28px;
+            font-size: 26px;
             margin-bottom: 10px;
         }
 
@@ -74,7 +88,7 @@
 
         /* Container & Cards */
         .container {
-            padding: 30px 20px;
+            padding: 20px;
             max-width: 800px;
             margin: auto;
         }
@@ -117,7 +131,6 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-top: 20px;
             line-height: 1.6;
         }
 
@@ -136,16 +149,6 @@
         .products li {
             padding: 10px 0;
             border-bottom: 1px solid #c8e6c9;
-        }
-
-        /* Review Section */
-        .review {
-            background: #fff8e1;
-            padding: 15px;
-            border-left: 4px solid #ffb300;
-            margin-top: 10px;
-            border-radius: 4px;
-            font-style: italic;
         }
 
         /* Contact Section */
@@ -205,6 +208,11 @@
         <p>100% Pure & Chemical Free Products</p>
     </header>
 
+    <!-- College Campus Photo Banner -->
+    <div class="campus-img-container">
+        <img src="college.jpg" alt="समर्थ शैक्षणिक संकुल, बेल्हे" class="campus-img">
+    </div>
+
     <!-- Hero Banner -->
     <section class="hero">
         <h2>ताजी आणि सेंद्रिय उत्पादने</h2>
@@ -217,22 +225,21 @@
         <!-- About Farm Section -->
         <h2 class="section-title">👨‍🌾 शेताविषयी माहिती (Farm Details)</h2>
         <div class="info-box">
-            <p><b>शेताचे नाव:</b> निसर्ग सेंद्रिय शेतफार्म (Nisarga Organic Farm)</p>
-            <p><b>शेतकऱ्याचे नाव:</b> श्री. [शेतकऱ्याचे नाव टाका]</p>
+            <p><b>शेताचे नाव:</b> निसर्ग सेंद्रिय शेतफार्म</p>
             <p><b>ठिकाण:</b> बेल्हे, जुन्नर, पुणे</p>
-            <p><b>वैशिष्ट्य:</b> मागील ५ वर्षांपासून संपूर्ण सेंद्रिय पद्धतीने भाजीपाला आणि फळांचे उत्पादन घेतले जाते.</p>
+            <p><b>वैशिष्ट्य:</b> संपूर्ण सेंद्रिय पद्धतीने भाजीपाला आणि फळांचे उत्पादन घेतले जाते.</p>
         </div>
 
         <!-- Organic Techniques -->
-        <h2 class="section-title">🧪 सेंद्रिय शेती पद्धती (Techniques)</h2>
+        <h2 class="section-title">🧪 सेंद्रिय शेती पद्धती</h2>
         <div class="card-grid">
             <div class="card">
                 <h3>🪱 गांडूळ खत</h3>
-                <p>मातीची सुपीकता वाढवण्यासाठी गांडूळ खताचा नैसर्गिक वापर.</p>
+                <p>मातीची सुपीकता वाढवण्यासाठी गांडूळ खताचा वापर.</p>
             </div>
             <div class="card">
                 <h3>🐄 जीवामृत</h3>
-                <p>देशी गायीचे शेण आणि गोमूत्रापासून तयार केलेले नैसर्गिक खत.</p>
+                <p>देशी गायीचे शेण आणि गोमूत्रापासून तयार केलेले खत.</p>
             </div>
             <div class="card">
                 <h3>🍃 निंबोळी अर्क</h3>
@@ -241,7 +248,7 @@
         </div>
 
         <!-- Products Section -->
-        <h2 class="section-title">🥦 उपलब्ध सेंद्रिय माल (Products)</h2>
+        <h2 class="section-title">🥦 उपलब्ध सेंद्रिय माल</h2>
         <div class="products">
             <ul>
                 <li>🥦 ताजी सेंद्रिय भाजीपाला (Organic Vegetables)</li>
@@ -249,13 +256,6 @@
                 <li>🌾 गावरान धान्य आणि डाळी (Natural Grains)</li>
                 <li>🥛 शुद्ध देशी गायीचे दूध व तूप (A2 Milk & Ghee)</li>
             </ul>
-        </div>
-
-        <!-- Customer Reviews -->
-        <h2 class="section-title">💬 ग्राहकांचे अभिप्राय (Reviews)</h2>
-        <div class="review">
-            "शेतातून मिळणारा भाजीपाला खूपच ताजा असतो आणि चवही उत्तम असते. १००% सेंद्रिय!"
-            <br><b>- स्थानिक ग्राहक</b>
         </div>
 
         <!-- Contact Form -->
@@ -273,7 +273,7 @@
         <div class="team">
             <h3>👨‍💻 प्रोजेक्ट सादरकर्ते (Project Team)</h3>
             <p style="margin-top:8px;">रोहित खैरणार व सहकारी</p>
-            <p>विभाग: [तुमची शाखा / Department]</p>
+            <p>समर्थ इंजिनिअरिंग कॉलेज, बेल्हे</p>
         </div>
 
     </div>
@@ -285,3 +285,4 @@
 
 </body>
 </html>
+
