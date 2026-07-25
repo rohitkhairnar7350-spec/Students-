@@ -61,6 +61,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             display: block;
             margin: 0 auto;
+            cursor: pointer;
         }
 
         /* Hero Section */
@@ -141,6 +142,12 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .gallery-card:hover {
+            transform: scale(1.03);
         }
 
         .gallery-card img {
@@ -155,6 +162,39 @@
             font-size: 14px;
             font-weight: 600;
             color: #2e7d32;
+        }
+
+        /* Image Popup (Modal) Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         /* Info & CEP Section */
@@ -251,7 +291,7 @@
 
     <!-- College Campus Photo -->
     <div class="campus-img-container">
-        <img src="college.jpg" alt="समर्थ शैक्षणिक संकुल, बेल्हे" class="campus-img">
+        <img src="college.jpg" alt="समर्थ शैक्षणिक संकुल, बेल्हे" class="campus-img" onclick="openModal(this.src)">
     </div>
 
     <!-- Hero Banner -->
@@ -277,20 +317,20 @@
             <p><b>वैशिष्ट्य:</b> संपूर्ण सेंद्रिय पद्धतीने भाजीपाला आणि फळांचे उत्पादन घेतले जाते.</p>
         </div>
 
-        <!-- NEW: Field Visit Photo Gallery -->
-        <h2 class="section-title">📸 शेत भेट आणि फोटो गॅलरी (Field Visit Gallery)</h2>
+        <!-- Field Visit Photo Gallery -->
+        <h2 class="section-title">📸 शेत भेट फोटो गॅलरी (Click Photo to View)</h2>
         <div class="gallery-grid">
-            <div class="gallery-card">
+            <div class="gallery-card" onclick="openModal(this.querySelector('img').src)">
                 <img src="farm1.jpg" alt="सेंद्रिय शेत" onerror="this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=400'">
-                <p>🌿 सेंद्रिय पिके व पाहणी</p>
+                <p>🔍 View: सेंद्रिय पिके व पाहणी</p>
             </div>
-            <div class="gallery-card">
+            <div class="gallery-card" onclick="openModal(this.querySelector('img').src)">
                 <img src="farm2.jpg" alt="गांडूळ खत प्रकल्प" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb16431?q=80&w=400'">
-                <p>🪱 गांडूळ खत व निर्मिती</p>
+                <p>🔍 View: गांडूळ खत व निर्मिती</p>
             </div>
-            <div class="gallery-card">
+            <div class="gallery-card" onclick="openModal(this.querySelector('img').src)">
                 <img src="farm3.jpg" alt="शेतकरी मुलाखत" onerror="this.src='https://images.unsplash.com/photo-1589923188900-85dae523342b?q=80&w=400'">
-                <p>👨‍🌾 शेतकऱ्यांशी चर्चा</p>
+                <p>🔍 View: शेतकऱ्यांशी चर्चा</p>
             </div>
         </div>
 
@@ -344,10 +384,38 @@
 
     </div>
 
+    <!-- Image Popup Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
     <!-- Footer Section -->
     <footer>
         <p>© SPPU CEP Project | Samarth College of Engineering, Belhe</p>
     </footer>
+
+    <!-- JavaScript For Image Popup -->
+    <script>
+        function openModal(imageSrc) {
+            var modal = document.getElementById("imageModal");
+            var fullImg = document.getElementById("fullImage");
+            modal.style.display = "block";
+            fullImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            var modal = document.getElementById("imageModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
