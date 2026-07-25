@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organic Farmer - 100% Pure & Natural</title>
+    <title>Organic Farmer - Student Project</title>
     <style>
         * {
             margin: 0;
@@ -17,13 +17,23 @@
             color: #333;
         }
 
-        /* Header / Navbar */
+        /* Header */
         header {
             background-color: #2e7d32;
             color: white;
             padding: 15px 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .college-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         header h1 {
@@ -33,6 +43,7 @@
         header p {
             font-size: 14px;
             color: #c8e6c9;
+            margin-top: 4px;
         }
 
         /* Hero Section */
@@ -50,11 +61,6 @@
             margin-bottom: 10px;
         }
 
-        .hero p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
         .btn {
             display: inline-block;
             background-color: #4caf50;
@@ -63,9 +69,10 @@
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
+            margin-top: 10px;
         }
 
-        /* Features Section */
+        /* Container & Cards */
         .container {
             padding: 30px 20px;
             max-width: 800px;
@@ -75,7 +82,7 @@
         .section-title {
             text-align: center;
             color: #1b5e20;
-            margin-bottom: 20px;
+            margin: 30px 0 20px 0;
             font-size: 22px;
         }
 
@@ -104,12 +111,21 @@
             color: #666;
         }
 
-        /* Products / Services */
+        /* Information Section */
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        /* Products List */
         .products {
             background-color: #e8f5e9;
-            padding: 30px 20px;
+            padding: 20px;
             border-radius: 10px;
-            margin-top: 20px;
         }
 
         .products ul {
@@ -122,13 +138,18 @@
             border-bottom: 1px solid #c8e6c9;
         }
 
-        .products li:last-child {
-            border-bottom: none;
+        /* Review Section */
+        .review {
+            background: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffb300;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-style: italic;
         }
 
         /* Contact Section */
         .contact {
-            margin-top: 30px;
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -154,6 +175,16 @@
             font-size: 16px;
         }
 
+        /* Team Section */
+        .team {
+            background: #2e7d32;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
         /* Footer */
         footer {
             background: #1b5e20;
@@ -169,6 +200,7 @@
 
     <!-- Header Section -->
     <header>
+        <div class="college-badge">🎓 Samarth College of Engineering, Belhe</div>
         <h1>🌱 Organic Farmer</h1>
         <p>100% Pure & Chemical Free Products</p>
     </header>
@@ -182,26 +214,35 @@
 
     <div class="container">
         
-        <!-- Features Section -->
-        <h2 class="section-title">आमची वैशिष्ट्ये</h2>
+        <!-- About Farm Section -->
+        <h2 class="section-title">👨‍🌾 शेताविषयी माहिती (Farm Details)</h2>
+        <div class="info-box">
+            <p><b>शेताचे नाव:</b> निसर्ग सेंद्रिय शेतफार्म (Nisarga Organic Farm)</p>
+            <p><b>शेतकऱ्याचे नाव:</b> श्री. [शेतकऱ्याचे नाव टाका]</p>
+            <p><b>ठिकाण:</b> बेल्हे, जुन्नर, पुणे</p>
+            <p><b>वैशिष्ट्य:</b> मागील ५ वर्षांपासून संपूर्ण सेंद्रिय पद्धतीने भाजीपाला आणि फळांचे उत्पादन घेतले जाते.</p>
+        </div>
+
+        <!-- Organic Techniques -->
+        <h2 class="section-title">🧪 सेंद्रिय शेती पद्धती (Techniques)</h2>
         <div class="card-grid">
             <div class="card">
-                <h3>🚜 100% सेंद्रिय</h3>
-                <p>कोणत्याही रासायनिक खतांचा व औषधांचा वापर नाही.</p>
+                <h3>🪱 गांडूळ खत</h3>
+                <p>मातीची सुपीकता वाढवण्यासाठी गांडूळ खताचा नैसर्गिक वापर.</p>
             </div>
             <div class="card">
-                <h3>🍎 ताजी उत्पादने</h3>
-                <p>थेट शेतातून ग्राहकांपर्यंत ताजी फळे व भाज्या.</p>
+                <h3>🐄 जीवामृत</h3>
+                <p>देशी गायीचे शेण आणि गोमूत्रापासून तयार केलेले नैसर्गिक खत.</p>
             </div>
             <div class="card">
-                <h3>💚 आरोग्यासाठी उत्तम</h3>
-                <p>नैसर्गिक पोषण आणि उत्तम चव.</p>
+                <h3>🍃 निंबोळी अर्क</h3>
+                <p>पिकांचे किडींपासून रक्षण करण्यासाठी कडुनिंबाचा वापर.</p>
             </div>
         </div>
 
         <!-- Products Section -->
+        <h2 class="section-title">🥦 उपलब्ध सेंद्रिय माल (Products)</h2>
         <div class="products">
-            <h2 class="section-title">आमची उत्पादने (Organic Products)</h2>
             <ul>
                 <li>🥦 ताजी सेंद्रिय भाजीपाला (Organic Vegetables)</li>
                 <li>🍎 रासायनिक खतमुक्त फळे (Fresh Fruits)</li>
@@ -210,9 +251,16 @@
             </ul>
         </div>
 
+        <!-- Customer Reviews -->
+        <h2 class="section-title">💬 ग्राहकांचे अभिप्राय (Reviews)</h2>
+        <div class="review">
+            "शेतातून मिळणारा भाजीपाला खूपच ताजा असतो आणि चवही उत्तम असते. १००% सेंद्रिय!"
+            <br><b>- स्थानिक ग्राहक</b>
+        </div>
+
         <!-- Contact Form -->
+        <h2 class="section-title">📩 चौकशी / ऑर्डर फॉर्म</h2>
         <div class="contact" id="contact">
-            <h2 class="section-title">चौकशीसाठी फॉर्म भरा</h2>
             <form action="#">
                 <input type="text" placeholder="तुमचे नाव (Name)" required>
                 <input type="text" placeholder="मोबाईल नंबर (Phone)" required>
@@ -221,13 +269,19 @@
             </form>
         </div>
 
+        <!-- Project Team Details -->
+        <div class="team">
+            <h3>👨‍💻 प्रोजेक्ट सादरकर्ते (Project Team)</h3>
+            <p style="margin-top:8px;">रोहित खैरणार व सहकारी</p>
+            <p>विभाग: [तुमची शाखा / Department]</p>
+        </div>
+
     </div>
 
     <!-- Footer Section -->
     <footer>
-        <p>© 2026 Organic Farmer Student Project. All Rights Reserved.</p>
+        <p>© Student Project | Samarth College of Engineering, Belhe</p>
     </footer>
 
 </body>
-    </html>
-    
+</html>
