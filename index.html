@@ -61,7 +61,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             display: block;
             margin: 0 auto;
-            cursor: pointer;
         }
 
         /* Hero Section */
@@ -79,15 +78,40 @@
             margin-bottom: 10px;
         }
 
+        /* Hero Buttons */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
         .btn {
             display: inline-block;
             background-color: #4caf50;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 22px;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
-            margin-top: 10px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .btn-gallery {
+            background-color: #ff9800;
+        }
+
+        .btn-gallery:hover {
+            background-color: #e68a00;
+        }
+
+        .btn:hover {
+            background-color: #388e3c;
         }
 
         /* Container & Cards */
@@ -129,25 +153,51 @@
             color: #666;
         }
 
-        /* Photo Gallery Styling */
+        /* Gallery Pop-Up Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            overflow-y: auto;
+            padding: 40px 15px;
+        }
+
+        .modal-body {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
+            margin-top: 20px;
         }
 
         .gallery-card {
-            background: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
             text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .gallery-card:hover {
-            transform: scale(1.03);
         }
 
         .gallery-card img {
@@ -158,43 +208,11 @@
         }
 
         .gallery-card p {
-            padding: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #2e7d32;
-        }
-
-        /* Image Popup (Modal) Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.85);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 80vh;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(255,255,255,0.2);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 40px;
+            padding: 8px;
+            font-size: 13px;
             font-weight: bold;
-            cursor: pointer;
+            color: #2e7d32;
+            background: #f9f9f9;
         }
 
         /* Info & CEP Section */
@@ -291,14 +309,18 @@
 
     <!-- College Campus Photo -->
     <div class="campus-img-container">
-        <img src="college.jpg" alt="समर्थ शैक्षणिक संकुल, बेल्हे" class="campus-img" onclick="openModal(this.src)">
+        <img src="college.jpg" alt="समर्थ शैक्षणिक संकुल, बेल्हे" class="campus-img">
     </div>
 
-    <!-- Hero Banner -->
+    <!-- Hero Banner with Buttons -->
     <section class="hero">
         <h2>सेंद्रिय शेती आणि डिजिटल विकास</h2>
         <p>विषमुक्त शेती, सुदृढ समुदाय व शाश्वत तंत्रज्ञान</p>
-        <a href="#contact" class="btn">संपर्क व चौकशी</a>
+        
+        <div class="btn-group">
+            <button class="btn btn-gallery" onclick="openGallery()">📸 View Gallery (फोटो गॅलरी)</button>
+            <a href="#contact" class="btn">📩 संपर्क व चौकशी</a>
+        </div>
     </section>
 
     <div class="container">
@@ -315,23 +337,6 @@
             <p><b>शेताचे नाव:</b> निसर्ग सेंद्रिय शेतफार्म</p>
             <p><b>ठिकाण:</b> बेल्हे, जुन्नर (पुणे)</p>
             <p><b>वैशिष्ट्य:</b> संपूर्ण सेंद्रिय पद्धतीने भाजीपाला आणि फळांचे उत्पादन घेतले जाते.</p>
-        </div>
-
-        <!-- Field Visit Photo Gallery -->
-        <h2 class="section-title">📸 शेत भेट फोटो गॅलरी (Click Photo to View)</h2>
-        <div class="gallery-grid">
-            <div class="gallery-card" onclick="openModal(this.querySelector('img').src)">
-                <img src="farm1.jpg" alt="सेंद्रिय शेत" onerror="this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=400'">
-                <p>🔍 View: सेंद्रिय पिके व पाहणी</p>
-            </div>
-            <div class="gallery-card" onclick="openModal(this.querySelector('img').src)">
-                <img src="farm2.jpg" alt="गांडूळ खत प्रकल्प" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb16431?q=80&w=400'">
-                <p>🔍 View: गांडूळ खत व निर्मिती</p>
-            </div>
-            <div class="gallery-card" onclick="openModal(this.querySelector('img').src)">
-                <img src="farm3.jpg" alt="शेतकरी मुलाखत" onerror="this.src='https://images.unsplash.com/photo-1589923188900-85dae523342b?q=80&w=400'">
-                <p>🔍 View: शेतकऱ्यांशी चर्चा</p>
-            </div>
         </div>
 
         <!-- Mechanical Engineering Aspect -->
@@ -384,10 +389,28 @@
 
     </div>
 
-    <!-- Image Popup Modal -->
-    <div id="imageModal" class="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="fullImage">
+    <!-- Photo Gallery Modal (Pop-up Window) -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-body">
+            <span class="close-btn" onclick="closeGallery()">&times;</span>
+            <h2 style="text-align: center; color: #1b5e20;">📸 शेत भेट आणि फोटो गॅलरी</h2>
+            <p style="text-align: center; font-size: 13px; color: #666;">Field Visit Photos</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="farm1.jpg" alt="सेंद्रिय शेत" onerror="this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=400'">
+                    <p>🌿 सेंद्रिय पिके व पाहणी</p>
+                </div>
+                <div class="gallery-card">
+                    <img src="farm2.jpg" alt="गांडूळ खत प्रकल्प" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb16431?q=80&w=400'">
+                    <p>🪱 गांडूळ खत व निर्मिती</p>
+                </div>
+                <div class="gallery-card">
+                    <img src="farm3.jpg" alt="शेतकरी मुलाखत" onerror="this.src='https://images.unsplash.com/photo-1589923188900-85dae523342b?q=80&w=400'">
+                    <p>👨‍🌾 शेतकऱ्यांशी चर्चा</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer Section -->
@@ -395,22 +418,19 @@
         <p>© SPPU CEP Project | Samarth College of Engineering, Belhe</p>
     </footer>
 
-    <!-- JavaScript For Image Popup -->
+    <!-- JavaScript For Gallery Pop-up -->
     <script>
-        function openModal(imageSrc) {
-            var modal = document.getElementById("imageModal");
-            var fullImg = document.getElementById("fullImage");
-            modal.style.display = "block";
-            fullImg.src = imageSrc;
+        function openGallery() {
+            document.getElementById("galleryModal").style.display = "block";
         }
 
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
+        function closeGallery() {
+            document.getElementById("galleryModal").style.display = "none";
         }
 
-        // Close modal when clicking outside the image
+        // Close modal when clicking outside
         window.onclick = function(event) {
-            var modal = document.getElementById("imageModal");
+            var modal = document.getElementById("galleryModal");
             if (event.target == modal) {
                 modal.style.display = "none";
             }
